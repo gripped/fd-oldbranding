@@ -1,53 +1,59 @@
-diff '--color=auto' -Naur a/mydiff2.diff b/mydiff2.diff
---- a/mydiff2.diff	1970-01-01 01:00:00.000000000 +0100
-+++ b/mydiff2.diff	2024-01-10 23:48:45.975322769 +0000
-@@ -0,0 +1,43 @@
-+diff '--color=auto' -Naur a/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx b/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx
-+--- a/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx	2023-12-19 14:59:28.000000000 +0000
-++++ b/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx	2024-01-10 19:05:38.632495548 +0000
-+@@ -285,11 +285,6 @@
-+             <ConfirmDialog />
-+           </main>
-+         </div>
-+-        <div id="floorp">
-+-          {/* TODO: use css instead this br tag */}
-+-          <a class="releasenote" href="https://support.ablaze.one" target="_blank">Support</a><br /><br />
-+-          <a class="releasenote" href="https://blog.ablaze.one/category/ablaze/ablaze-project/floorp" target="_blank">Release Note</a>
-+-        </div>
-+         {/* TODO: move to _Base.scss */}
-+         <a  href="https://unsplash.com/" style={{position: "fixed", bottom: "1em", left: "1em", fontSize: "16px",  color: "#ffffff"}} target="_blank" id="unsplash">Unsplash</a>
-+       </div>
+diff '--color=auto' -Naur a/my-activity-stream.css-compact.patch b/my-activity-stream.css-compact.patch
+--- a/my-activity-stream.css-compact.patch	1970-01-01 01:00:00.000000000 +0100
++++ b/my-activity-stream.css-compact.patch	2024-01-13 15:01:45.589205403 +0000
+@@ -0,0 +1,49 @@
 +diff '--color=auto' -Naur a/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css b/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css
 +--- a/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css	2023-12-19 14:59:28.000000000 +0000
 ++++ b/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css	2024-01-10 19:05:38.635828883 +0000
-+@@ -684,7 +684,6 @@
++@@ -680,7 +680,7 @@
++ 
++ .top-site-outer {
++   width: 120px;
++-  padding: 20px 16px 4px;
+++  /*! padding: 20px 16px 4px; */
 +   border-radius: 8px;
 +   display: inline-block;
 +   background-color: color-mix(in srgb, var(--newtab-background-color) 50%, transparent);
-+-  border: 1px solid rgba(170, 170, 170, 0.6);
-+   z-index: 1;
++@@ -1241,7 +1241,7 @@
 + }
-+ .top-site-outer .top-site-inner {
-+diff '--color=auto' -Naur a/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js b/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js
-+--- a/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js	2024-01-10 20:03:22.099059026 +0000
-++++ b/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js	2024-01-10 20:13:07.909041572 +0000
-+@@ -789,11 +789,11 @@
-+       class: "releasenote",
-+       href: "https://support.ablaze.one",
-+       target: "_blank"
-+-    }, "Support"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
-++    }, ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
-+       class: "releasenote",
-+       href: "https://blog.ablaze.one/category/ablaze/ablaze-project/floorp",
-+       target: "_blank"
-+-    }, "Release Note")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
-++    }, "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
-+       href: "https://unsplash.com/",
-+       style: {
-+         position: "fixed",
-diff '--color=auto' -Naur a/mydiff.diff b/mydiff.diff
---- a/mydiff.diff	1970-01-01 01:00:00.000000000 +0100
-+++ b/mydiff.diff	2024-01-10 15:24:45.126223740 +0000
++ 
++ .search-wrapper {
++-  padding: 34px 0 38px;
+++  padding: 34px 0 16px;
++ }
++ .only-search .search-wrapper {
++   padding: 0 0 38px;
++@@ -1250,14 +1250,14 @@
++   align-items: center;
++   display: flex;
++   justify-content: center;
++-  margin-bottom: 48px;
+++  margin-bottom: 16px;
++ }
++ .search-wrapper .logo-and-wordmark .logo {
++   display: inline-block;
++-  height: 82px;
++-  width: 82px;
+++  height: 100px;
+++  width: 100px;
++   background: url("chrome://branding/content/about-logo.png") no-repeat center;
++-  background-size: 82px;
+++  background-size: 100px;
++ }
++ @media (min-resolution: 2x) {
++   .search-wrapper .logo-and-wordmark .logo {
++@@ -1271,7 +1271,7 @@
++   display: inline-block;
++   fill: var(--newtab-wordmark-color);
++   height: 100px;
++-  margin-inline-start: 25px;
+++  /*! margin-inline-start: 25px; */
++   width: 300px;
++ }
++ @media (max-width: 609px) {
+diff '--color=auto' -Naur a/my-config.patch b/my-config.patch
+--- a/my-config.patch	1970-01-01 01:00:00.000000000 +0100
++++ b/my-config.patch	2024-01-10 15:24:45.126223740 +0000
 @@ -0,0 +1,111 @@
 +diff '--color=auto' -Naur a/settings/distribution/policies.json b/settings/distribution/policies.json
 +--- a/settings/distribution/policies.json	2024-01-10 15:11:27.362914174 +0000
@@ -160,17 +166,91 @@ diff '--color=auto' -Naur a/mydiff.diff b/mydiff.diff
 + //defaultPref("browser.startup.homepage_override.mstone", "115.6.0");
 + defaultPref("browser.proton.toolbar.version", 3);
 + defaultPref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+diff '--color=auto' -Naur a/my-newtab.patch b/my-newtab.patch
+--- a/my-newtab.patch	1970-01-01 01:00:00.000000000 +0100
++++ b/my-newtab.patch	2024-01-13 02:38:29.515607695 +0000
+@@ -0,0 +1,58 @@
++diff '--color=auto' -Naur a/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx b/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx
++--- a/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx	2023-12-19 14:59:28.000000000 +0000
+++++ b/Floorp-11.7.1/browser/components/newtab/content-src/components/Base/Base.jsx	2024-01-10 19:05:38.632495548 +0000
++@@ -285,11 +285,6 @@
++             <ConfirmDialog />
++           </main>
++         </div>
++-        <div id="floorp">
++-          {/* TODO: use css instead this br tag */}
++-          <a class="releasenote" href="https://support.ablaze.one" target="_blank">Support</a><br /><br />
++-          <a class="releasenote" href="https://blog.ablaze.one/category/ablaze/ablaze-project/floorp" target="_blank">Release Note</a>
++-        </div>
++         {/* TODO: move to _Base.scss */}
++         <a  href="https://unsplash.com/" style={{position: "fixed", bottom: "1em", left: "1em", fontSize: "16px",  color: "#ffffff"}} target="_blank" id="unsplash">Unsplash</a>
++       </div>
++diff '--color=auto' -Naur a/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css b/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css
++--- a/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css	2023-12-19 14:59:28.000000000 +0000
+++++ b/Floorp-11.7.1/browser/components/newtab/css/activity-stream-linux.css	2024-01-10 19:05:38.635828883 +0000
++@@ -684,7 +684,6 @@
++   border-radius: 8px;
++   display: inline-block;
++   background-color: color-mix(in srgb, var(--newtab-background-color) 50%, transparent);
++-  border: 1px solid rgba(170, 170, 170, 0.6);
++   z-index: 1;
++ }
++ .top-site-outer .top-site-inner {
++diff '--color=auto' -Naur a/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js b/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js
++--- a/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js	2024-01-10 20:03:22.099059026 +0000
+++++ b/Floorp-11.7.1/browser/components/newtab/data/content/activity-stream.bundle.js	2024-01-10 20:13:07.909041572 +0000
++@@ -789,11 +789,11 @@
++       class: "releasenote",
++       href: "https://support.ablaze.one",
++       target: "_blank"
++-    }, "Support"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
+++    }, ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
++       class: "releasenote",
++       href: "https://blog.ablaze.one/category/ablaze/ablaze-project/floorp",
++       target: "_blank"
++-    }, "Release Note")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
+++    }, "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("a", {
++       href: "https://unsplash.com/",
++       style: {
++         position: "fixed",
++@@ -15967,6 +15967,14 @@
++       value: "4",
++       "data-l10n-id": "newtab-custom-row-selector",
++       "data-l10n-args": "{\"num\": 4}"
+++    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+++      value: "5",
+++      "data-l10n-id": "newtab-custom-row-selector",
+++      "data-l10n-args": "{\"num\": 5}"
+++    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+++      value: "6",
+++      "data-l10n-id": "newtab-custom-row-selector",
+++      "data-l10n-args": "{\"num\": 6}"
++     })), mayHaveSponsoredTopSites && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
++       className: "check-wrapper",
++       role: "presentation"
 diff '--color=auto' -Naur a/PKGBUILD b/PKGBUILD
---- a/PKGBUILD	2024-01-11 23:39:55.608478062 +0000
-+++ b/PKGBUILD	2024-01-11 22:22:50.439568905 +0000
-@@ -71,13 +71,17 @@
+--- a/PKGBUILD	2024-01-13 12:31:38.125818675 +0000
++++ b/PKGBUILD	2024-01-13 15:09:41.535874890 +0000
+@@ -61,9 +61,7 @@
+     'xdg-desktop-portal: Screensharing with Wayland')
+ options=(!debug
+     !emptydirs
+-    !lto
+-    !makeflags
+-    !strip)
++    !lto)
+ backup=("usr/lib/${pkgname}/${pkgname}.cfg"
+     "usr/lib/${pkgname}/distribution/policies.json")
+ source=(https://github.com/Floorp-Projects/Floorp/archive/refs/tags/v"${pkgver}".tar.gz
+@@ -71,13 +69,19 @@
      "floorp-l10n-central::git+https://github.com/Floorp-Projects/Unified-l10n-central#commit=$_floorp_l10n_commit"
      "common::git+https://gitlab.com/garuda-linux/firedragon/common.git"
      "settings::git+https://gitlab.com/garuda-linux/firedragon/settings.git"
 -    "${pkgname}.desktop")
 +    "${pkgname}.desktop"
-+    "mydiff.diff"
-+    "mydiff2.diff")
++    "my-config.patch"
++    "my-newtab.patch"
++    "my-activity-stream.css-compact.patch")
  sha256sums=('f267ea51dbbe869f3674da1985611bc34a712a8c8c9d677feeb796fc9335d47d'
      'SKIP'
      'SKIP'
@@ -178,6 +258,7 @@ diff '--color=auto' -Naur a/PKGBUILD b/PKGBUILD
      'SKIP'
 -    '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560')
 +    '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560'
++    'SKIP'
 +    'SKIP'
 +    'SKIP')
  
@@ -192,12 +273,12 @@ diff '--color=auto' -Naur a/PKGBUILD b/PKGBUILD
 +    cd "${srcdir}"/Floorp-"${pkgver}"
      cp -r "${srcdir}"/common/source_files/* ./
 +
-+    # mydiff
++    # mydiffs
 +    cd ${srcdir}
-+    patch -Np1 < mydiff.diff
++    patch -Np1 < my-config.patch
 +    cd Floorp-"${pkgver}"
-+    patch -Np2 < ../mydiff2.diff
-+    
++    patch -Np2 < ../my-newtab.patch
++    patch -Np2 < ../my-activity-stream.css-compact.patch
  }
  
  build() {
