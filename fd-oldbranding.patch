@@ -245,8 +245,8 @@ diff '--color=auto' -Naur a/my-url-zoom.patch b/my-url-zoom.patch
 +   ],
 + });
 diff '--color=auto' -Naur a/PKGBUILD b/PKGBUILD
---- a/PKGBUILD	2024-01-13 12:31:38.125818675 +0000
-+++ b/PKGBUILD	2024-01-14 04:25:47.716158043 +0000
+--- a/PKGBUILD	2024-01-17 20:40:36.050274385 +0000
++++ b/PKGBUILD	2024-01-17 21:11:47.473552144 +0000
 @@ -61,9 +61,7 @@
      'xdg-desktop-portal: Screensharing with Wayland')
  options=(!debug
@@ -264,21 +264,21 @@ diff '--color=auto' -Naur a/PKGBUILD b/PKGBUILD
      "settings::git+https://gitlab.com/garuda-linux/firedragon/settings.git"
 -    "${pkgname}.desktop")
 +    "${pkgname}.desktop"
-+    "my-config.patch"
++     "my-config.patch"
 +    "my-newtab.patch"
 +    "my-activity-stream.css-compact.patch"
 +    "my-url-zoom.patch")
- sha256sums=('f267ea51dbbe869f3674da1985611bc34a712a8c8c9d677feeb796fc9335d47d'
-     'SKIP'
-     'SKIP'
-     'SKIP'
-     'SKIP'
--    '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560')
-+    '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560'
-+    'SKIP'
-+    'SKIP'
-+    'SKIP'
-+    'SKIP')
+ sha256sums=('3c5678f0cf82aebd146c49fd73cfaf449a76da62cb5a4767bca331492f4073ed'
+             'SKIP'
+             'SKIP'
+             'SKIP'
+             'SKIP'
+-            '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560')
++            '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560'
++            'SKIP'
++            'SKIP'
++            'SKIP'
++            'SKIP')
  
  prepare() {
      # Floorp's shenanigan to make the build work without cloning the whole
