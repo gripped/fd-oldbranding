@@ -258,46 +258,46 @@ diff '--color=auto' -Naur a/PKGBUILD b/PKGBUILD
  backup=("usr/lib/${pkgname}/${pkgname}.cfg"
      "usr/lib/${pkgname}/distribution/policies.json")
  source=(https://github.com/Floorp-Projects/Floorp/archive/refs/tags/v"${pkgver}".tar.gz
-@@ -71,13 +69,21 @@
-     "floorp-l10n-central::git+https://github.com/Floorp-Projects/Unified-l10n-central#commit=$_floorp_l10n_commit"
+@@ -73,13 +71,19 @@
+     "floorp-l10n-central::git+https://github.com/Floorp-Projects/Unified-l10n-central"
      "common::git+https://gitlab.com/garuda-linux/firedragon/common.git"
      "settings::git+https://gitlab.com/garuda-linux/firedragon/settings.git"
 -    "${pkgname}.desktop")
 +    "${pkgname}.desktop"
-+     "my-config.patch"
++    "my-config.patch"
 +    "my-newtab.patch"
-+    "my-activity-stream.css-compact.patch"
-+    "my-url-zoom.patch")
- sha256sums=('3c5678f0cf82aebd146c49fd73cfaf449a76da62cb5a4767bca331492f4073ed'
++    "my-activity-stream.css-compact.patch")
+ sha256sums=('08a5689477e3e4bda027c1a2115d8e4b63fdc1b91838278352f00206410b194c'
              'SKIP'
              'SKIP'
              'SKIP'
              'SKIP'
--            '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560')
-+            '53d3e743f3750522318a786befa196237892c93f20571443fdf82a480e7f0560'
-+            'SKIP'
+-            '4814fc70f49e64acfcba0a174e06dbbf58809230f03d5aedee5d8ea3ce63a170')
++            '4814fc70f49e64acfcba0a174e06dbbf58809230f03d5aedee5d8ea3ce63a170'
 +            'SKIP'
 +            'SKIP'
 +            'SKIP')
  
  prepare() {
      # Floorp's shenanigan to make the build work without cloning the whole
-@@ -202,7 +208,18 @@
-     # _patch "${_patches_dir}"/custom/privacy-preferences.patch
+@@ -209,9 +213,19 @@
  
+     # Update privacy preferences -- DISABLED to test UI changes and allow user to easily change the setting
+     # _patch "${_patches_dir}"/custom/privacy-preferences.patch
+-
++    
      rm -f "${srcdir}"/common/source_files/mozconfig
 +    cd "${srcdir}"/common
 +    git checkout 3b15af020ca05b00debcff56fa49b3b02c67579b
 +    cd "${srcdir}"/Floorp-"${pkgver}"
      cp -r "${srcdir}"/common/source_files/* ./
-+
++    
 +    # mydiffs
 +    cd ${srcdir}
 +    patch -Np1 < my-config.patch
 +    cd Floorp-"${pkgver}"
 +    patch -Np2 < ../my-newtab.patch
 +    patch -Np2 < ../my-activity-stream.css-compact.patch
-+    patch -Np2 < ../my-url-zoom.patch
  }
  
  build() {
